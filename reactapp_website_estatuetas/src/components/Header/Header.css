@@ -1,0 +1,121 @@
+.baseHeader {
+  width: 100%;
+  padding: 15px 0;
+}
+
+.headerContainer {
+  max-width: 70%; /* Limita a largura para garantir uma boa aparência em telas grandes */
+  width: 60%;
+  background-color: grey;
+  border-radius: 20px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  opacity: 1;
+}
+
+.headerLogo img {
+  height: auto; /* Ajusta a altura do logo para ser responsiva */
+  max-height: 50px; /* Limita a altura máxima do logo */
+  cursor: pointer;
+}
+
+.headerMenu {
+  flex-grow: 1; /* Faz com que o menu ocupe todo o espaço disponível */
+}
+
+.headerMenu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; /* Alinha os itens do menu à direita */
+}
+
+.headerMenu li {
+  margin-left: 2%; /* Adiciona um espaçamento entre os itens do menu */
+  cursor: pointer;
+}
+
+.headerMenu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+.headerMenu a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #f00;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.headerMenu a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.headerMenu a:hover {
+  color: #f00;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.menuIcon {
+  display: none; /* Hide the menu icon by default */
+  visibility: hidden;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.searchContainer {
+  width: 30%;
+  height: 25px;
+  margin-left: 1rem;
+  border: 1px solid #f00;
+}
+
+.searchContainer input {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+}
+
+/* Hide the search bar by default */
+.searchContainer {
+  display: flex;
+}
+
+@media screen and (max-width: 980px) {
+  .headerContainer {
+    align-self: center;
+  }
+
+  .headerMenu li {
+    display: none; /* Hide the menu by default on small screens */
+    margin-top: 20px;
+  }
+
+  .headerMenu .menuIcon {
+    display: flex; /* Show the menu icon on small screens */
+    visibility: visible;
+    padding-left: 10px;
+  }
+
+  .searchContainer {
+    width: auto;
+    height: 25px;
+  }
+}
